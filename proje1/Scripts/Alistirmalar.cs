@@ -1,0 +1,378 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace proje1
+{
+    internal class Alistirmalar
+    {
+        public static void Yas()
+        {
+            /*
+
+            Console.Write("Lütfen yaşınızı giriniz: ");
+            string girilenDeger = Console.ReadLine();
+
+            if (int.TryParse(girilenDeger, out int yas))
+            {
+                if (yas == 18)
+                    Console.WriteLine("Kullanıcı 18 yaşındadır");
+                else if (yas > 18)
+                    Console.WriteLine("Kullanıcı 18 yaşından büyüktür");
+                else
+                    Console.WriteLine("Kullanıcı 18 yaşından küçüktür");
+            }
+            else
+            {
+                Console.WriteLine("Lütfen yaşınızı rakamlar ile yazın!");
+            }
+
+            */
+
+
+            try
+            {
+                Console.Write("Lütfen yaşınızı giriniz: ");
+                int yas = int.Parse(Console.ReadLine());
+
+                if (yas == 18)
+                    Console.WriteLine("Kullanıcı 18 yaşındadır");
+                else if (yas > 18)
+                    Console.WriteLine("Kullanıcı 18 yaşından büyüktür");
+                else
+                    Console.WriteLine("Kullanıcı 18 yaşından küçüktür");
+            }
+            catch
+            {
+                Console.WriteLine("Geçerli bir sayı giriniz!");
+            }
+        }
+        public static void Giyinme()
+        {
+            Console.WriteLine("(Programı kapatmak için sıcaklık degerini 999 olacak sekilde girin.)");
+            while (true)
+            {
+                Console.Write("Hava sıcaklıgını giriniz:");
+                int sc = int.Parse(Console.ReadLine());
+
+                if (sc != 999)
+                {
+                    if (sc <= 4)
+                    {
+                        Console.WriteLine("Kalın mont giy!");
+                        sc = 999;
+                    }
+                    else if (sc >= 5 && sc <= 14)
+                    {
+                        Console.WriteLine("Sweatshirt yeterli.");
+                        sc = 999;
+                    }
+                    else if (sc >= 15 && sc <= 24)
+                    {
+                        Console.WriteLine("Tişört giyilebilir.");
+                        sc = 999;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Şortla çıkabilirsin.");
+                        sc = 999;
+                    } 
+                }
+                else
+                {
+                    break;
+                }
+            } 
+        }
+        public static void NotDurumu()
+        {
+            Console.WriteLine("(Programı kapatmak için not degerini 999 olacak sekilde girin.)");
+            while (true)
+            {
+                Console.Write("Notunuzu giriniz:");
+                int nt = int.Parse(Console.ReadLine());
+
+                if (nt != 999)
+                {
+                    if (nt >= 90)
+                    {
+                        Console.WriteLine("Mükemmel!");
+                        nt = 999;
+                    }
+                    else if (nt >= 75 && nt <= 89)
+                    {
+                        Console.WriteLine(" Gayet iyi.");
+                        nt = 999;
+                    }
+                    else if (nt >= 60 && nt <= 74)
+                    {
+                        Console.WriteLine(" Geçtin ama biraz daha çalış.");
+                        nt = 999;
+                    }
+                    else
+                    {
+                        Console.WriteLine(" Kaldın.");
+                        nt = 999;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+        }
+        public static void HesapMakinesi()
+        {
+            Console.WriteLine("(Programı kapatmak için yapıalcak işlemi 0 olacak sekilde girin.)");
+            while (true)
+            {
+                Console.Write("Birinci sayıyı giriniz:");
+                double sayi1 = double.Parse(Console.ReadLine());
+
+                Console.Write("İkinci sayıyı giriniz:");
+                double sayi2 = double.Parse(Console.ReadLine());
+
+                Console.Write("Yapılacak işlemi ( + - * / ) giriniz:");
+                string islem = Console.ReadLine();
+
+                if (islem == "0")
+                {
+                    break;
+                }
+                else
+                {
+                    switch (islem)
+                    {
+                        case "+":
+                            Console.WriteLine("Cevap: " + (sayi1 + sayi2));
+                            break;
+                        case "-":
+                            Console.WriteLine("Cevap: " + (sayi1 - sayi2));
+                            break;
+                        case "*":
+                            Console.WriteLine("Cevap: " + (sayi1 * sayi2));
+                            break;
+                        case "/":
+                            Console.WriteLine("Cevap: " + (sayi1 / sayi2));
+                            break;
+                        default:
+                            Console.WriteLine("Hatalı giris yaptınız.");
+                            break;
+                    }
+                }
+            }
+
+        }
+        public static void GirisKontrol()
+        {
+            while (true)
+            {
+                Console.Write("Kullanıcı adı giriniz: ");
+                string kAdi = Console.ReadLine();
+                Console.Write("Şifre giriniz: ");
+                string sifre = Console.ReadLine();
+                if (kAdi != "admin" || sifre != "1234")
+                {
+                    Console.WriteLine("Kullanıcı adı veya şifre yanlış!");
+                }
+                else
+                {
+                    Console.WriteLine("Giriş başarılı!");
+                    break;
+                } 
+            }
+        }
+        public static void GunlereMesaj()
+        {
+            Console.Write("Haftanın gününü 1-7 arası olacak şekilde yazınız: ");
+            string gun = Console.ReadLine();
+            switch (gun)
+            {
+                case "1":
+                    Console.WriteLine("Pazartesi");
+                    break;
+                case "2":
+                    Console.WriteLine("Salı");
+                    break;
+                case "3":
+                    Console.WriteLine("Çarşamba");
+                    break;
+                case "4":
+                    Console.WriteLine("Perşembe");
+                    break;
+                case "5":
+                    Console.WriteLine("Cuma");
+                    break;
+                case "6":
+                case "7":
+                    Console.WriteLine("Haftasonu");
+                    break;
+                default:
+                    Console.WriteLine("Hatalı giriş yaptınız.");
+                    break ;
+            }
+                
+
+            
+
+        }
+        public static void YasKategorisi()
+        {
+            Console.Write("Yaşınızı yazınız:");
+            int yas = int.Parse(Console.ReadLine());
+            if (yas >= 0 && yas <= 12)
+            {
+                Console.WriteLine("Çocuk");
+            }
+            else if (yas >= 13 && yas <= 17)
+            {
+                Console.WriteLine("Genç");
+            }
+            else if (yas >= 18 && yas <= 59)
+            {
+                Console.WriteLine("Yetişkin");
+            }
+            else if (yas >= 60)
+            {
+                Console.WriteLine("Yaşlı");
+            }
+            else
+            {
+                Console.WriteLine("Hatalı giriş yaptınız");
+            }
+        }
+        public static void SayiKarsilastir()
+        {
+            Console.Write("Birinci sayiyi giriniz: ");
+            int sayi1 = int.Parse(Console.ReadLine());
+            Console.Write("İkinci sayiyi giriniz: ");
+            int sayi2 = int.Parse(Console.ReadLine());
+            if (sayi1 == sayi2)
+            {
+                Console.WriteLine("ikisi eşittir.");
+            }
+            else if (sayi1 > sayi2)
+            {
+                Console.WriteLine("Birinci sayı büyüktür.");
+            }
+            else
+            {
+                Console.WriteLine("İkinci sayı büyüktür.");
+            }
+        }
+        public static void HizKontrol()
+        {
+            Console.Write("Hızınızı giriniz: ");
+            int hiz = int.Parse(Console.ReadLine());
+
+            if (hiz <= 90)
+            {
+                Console.WriteLine("Güvenli sürüş!");
+            }
+            else if (hiz >=91 && hiz <= 110)
+            {
+                Console.WriteLine("Uyarı: Hız limitine yaklaştınız.");
+            }
+            else
+            {
+                Console.WriteLine("Ceza kesildi! Aşırı hız yaptınız");
+            }
+        }
+        public static void KullaniciYetki()
+        {
+            Console.Write("Bir rol (admin, editor, user) giriniz: ");
+            string rol = Console.ReadLine();
+
+            if (rol == "admin")
+            {
+                Console.WriteLine("Tüm yetkilere sahipsiniz.");
+            }
+            else if (rol == "editör")
+            {
+                Console.WriteLine("İçerik düzenleyebilirsiniz.");
+            }
+            else if(rol == "user")
+            {
+                Console.WriteLine("İçerik görüntüleyebilirsiniz.");
+            }
+            else
+            {
+                Console.WriteLine("Tanımsız rol!");
+            }
+        }
+        public static void SifreGuc()
+        {
+            Console.Write("En az 8 karakter 1 büyük harf ve 1 rakam içeren bir şifre belirleyiniz: ");
+            string sifre = Console.ReadLine();
+
+            bool buyukHarfVar = false;
+            bool rakamVar = false;
+
+            if (sifre.Length < 8)
+            {
+                Console.WriteLine("Zayıf şifre");
+            }
+            else
+            {
+                for (int i = 0; i < sifre.Length; i++)
+                {
+                    char karakter = sifre[i];
+
+                    if (karakter >= 'A' && karakter <= 'Z')
+                        buyukHarfVar = true;
+
+                    if (karakter >= '0' && karakter <= '9')
+                        rakamVar = true;
+
+                    if (buyukHarfVar && rakamVar)
+                        break;
+                }
+
+                if (buyukHarfVar && rakamVar)
+                    Console.WriteLine("Güçlü şifre");
+                else
+                    Console.WriteLine("Zayıf şifre");
+            }
+
+
+        }
+
+        //------------------------------------------//
+
+        public static void VucutKıtle()
+        {
+            Console.Write("Kilonuzu giriniz: ");
+            int kilo = int.Parse( Console.ReadLine());
+
+            Console.Write("Boyunuzu giriniz: ");
+            int boy = int.Parse(Console.ReadLine());
+
+            double vki = kilo / boy * boy;
+
+            if (vki < 18.5)
+            {
+                Console.WriteLine("Zayıf");
+            }
+            else if (vki >= 18.5 && vki < 25)
+            {
+                Console.WriteLine("Normal");
+            }
+            else if (vki >= 25 && vki < 30)
+            {
+                Console.WriteLine("Fazla Kilolu");
+            }
+            else if(vki >= 30 && vki < 40)
+            {
+                Console.WriteLine("Obez");
+            }
+            else
+            {
+                Console.WriteLine("Aşırı Obez");
+            }
+        }
+    }
+}
