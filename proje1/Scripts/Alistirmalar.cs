@@ -9,6 +9,7 @@ namespace proje1
 {
     internal class Alistirmalar
     {
+        //-----------------------Koşullar------------------------//
         public static void Yas()
         {
             /*
@@ -340,9 +341,6 @@ namespace proje1
 
 
         }
-
-        //------------------------------------------//
-
         public static void VucutKıtle()
         {
             Console.Write("Kilonuzu giriniz: ");
@@ -374,5 +372,292 @@ namespace proje1
                 Console.WriteLine("Aşırı Obez");
             }
         }
+
+        //-----------------------Dögüler------------------------//
+        public static void TekCift()
+        {
+            Console.Write("Başlangıç sayısı: ");
+            int baslangic = int.Parse(Console.ReadLine());
+
+            Console.Write("Bitiş sayısı: ");
+            int bitis = int.Parse(Console.ReadLine());
+            
+            Console.Write("Tek mi çift mi ? (tek/çift): ");
+            string tekVeCift = Console.ReadLine();
+
+            for (int i = baslangic; i <= bitis; i++)
+            {
+                if (tekVeCift == "çift" && i % 2 == 0)
+                {
+                    Console.WriteLine(i); ;
+                }
+                else if (tekVeCift == "tek" && i % 2 != 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+        public static void CarpimTablosu()
+        {
+            Console.WriteLine("Çarpım Tablosu Uygulaması");
+            Console.Write("Başlangıç Sayısı: ");
+            int baslangic = int.Parse(Console.ReadLine());
+            Console.Write("Bitiş Sayısı: ");
+            int bitis = int.Parse(Console.ReadLine());
+            for (int i = baslangic; i <= bitis; i++)
+            {
+                for (int j = baslangic; j <= bitis; j++)
+                {
+                    Console.WriteLine(i + " x " + j + " = " + j * i); 
+                }
+                Console.WriteLine();
+            }
+        }
+        public static void YildizPiramitCiz()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5 - i; j++)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 0; k < 2 * i - 1; k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+        public static void TekCiftWhile()
+        {
+            int i = 0;
+            while (i <= 20)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine($"{i} sayısı çifttir.");
+
+                }
+                else
+                {
+                    Console.WriteLine($"{i} sayısı tektir.");
+                }
+                i++;
+            }
+        }
+        public static void Alarm()
+        {
+            int saniye = 5;
+            while (saniye >= 0)
+            {
+                if (saniye == 0)
+                {
+                    Console.WriteLine("Süre doldu! Alarm çalıyor!");
+                    Console.Beep(500,2000);
+                }
+                else
+                {
+                    Console.WriteLine($"Kalan süre: {saniye} saniye");
+                }
+                saniye--;
+            }
+        }
+        public static void DoWhile()
+        {
+            bool anahtar = true;
+            do
+            {
+                Console.Write("Sayı gir (Çıkış için 0): ");
+                int sayi = int.Parse(Console.ReadLine());
+
+                if (sayi == 0)
+                {
+                    Console.WriteLine("0 basıldı çıkış yapılıyor...");
+                    anahtar = false;
+                }
+                else
+                {
+                    Console.WriteLine($"Girilen sayı: {sayi}");
+                }
+
+            }
+            while (anahtar);
+        }
+        public static void BasamaklariToplami()
+        {
+
+            Console.Write("Bir sayi giriniz:");
+            int sayi = Math.Abs(int.Parse(Console.ReadLine()));
+            int ilkSayi = sayi;
+            int toplam = 0;
+            while (sayi > 0)
+            {
+                toplam += sayi % 10;
+                sayi /= 10;
+            }
+            Console.WriteLine($"{ilkSayi} sayisinin basmaklari toplami {toplam}");
+        }
+
+        //-----------------------Diziler------------------------//
+
+        public static void GirilenSayilarinOrt()
+        {
+            int[] sayilar = new int[5];
+            double toplam = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Sayı gir: ");
+                sayilar[i] = int.Parse(Console.ReadLine());
+                toplam += sayilar[i];
+            }
+            Console.WriteLine($"Ortalama = {toplam / 5}");
+        }
+        public static void DiziElemanlari()
+        {
+            int[] sayilar = new int[10];
+            int i = 0;
+            while (true)
+            {
+                if (i == 10)
+                    break;
+
+                Console.Write("Sayı gir: ");
+                int sayi = int.Parse(Console.ReadLine());
+
+                if (sayi > 0)
+                {
+                    sayilar[i] = sayi;
+                    i++;
+                }
+
+
+            }
+            Console.WriteLine();
+            Console.WriteLine("Dizi elemanları:");
+            for (int j = 0; j < 10; j++)
+            {
+                Console.WriteLine(sayilar[j]);
+            }
+        }
+        public static void UrunAnahtari()
+        {
+            Random random = new Random();
+
+            Console.Write("Oluşturulacak key sayısı: ");
+            int keySayisi = int.Parse(Console.ReadLine());
+
+            for (int k = 0; k < keySayisi; k++)
+            {
+                string key = "";
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        int harfSayi = random.Next(0, 2);
+
+                        if (harfSayi == 0)
+                        {
+                            key += Convert.ToChar(random.Next(65, 91));
+                        }
+                        else
+                        {
+                            key += Convert.ToChar(random.Next(48, 58));
+                        }
+                        if (i != 4 && j == 4)
+                        {
+                            key += "-";
+                        }
+                    }
+                }
+                Console.WriteLine(key);
+            }
+        }
+        public static void İsimListesi()
+        {
+            string[] isimler = new string[1];
+            string[] konteyner = new string[1];
+
+            while (true)
+            {
+                Console.Clear();
+                Console.Write("İsim Gir(Listelemek İçin (0)): ");
+                string giris = Console.ReadLine();
+
+                if (giris == "0")
+                {
+                    for (int i = 0; i < isimler.Length; i++)
+                    {
+                        Console.WriteLine(isimler[i]);
+                    }
+
+                    break;
+                }
+                else
+                {
+                    isimler[isimler.Length - 1] = giris;
+
+                    for (int i = 0; i < isimler.Length; i++)
+                    {
+                        konteyner[i] = isimler[i];
+                    }
+
+                    isimler = new string[isimler.Length + 1];
+
+                    for (int i = 0; i < konteyner.Length; i++)
+                    {
+                        isimler[i] = konteyner[i];
+                    }
+
+                    konteyner = new string[konteyner.Length + 1];
+                }
+            }
+        }
+        public static void ListedeSayilar()
+        {
+            Random random = new Random();
+
+            Console.Write("Listenin eleman sayısı: ");
+            int kapasite = int.Parse(Console.ReadLine());
+
+            Console.Write("Listedeki sayıların alabileceği minimum değer: ");
+            int minimum = int.Parse(Console.ReadLine());
+
+            Console.Write("Listedeki sayıların alabileceği maksimum değer: ");
+            int maksimum = int.Parse(Console.ReadLine());
+
+            int[] sayilar = new int[kapasite];
+
+            for (int i = 0; i < sayilar.Length; i++)
+            {
+                sayilar[i] = random.Next(minimum, maksimum);
+            }
+            //for (int i = 0; i < sayilar.Length; i++)
+            //{
+            //    Console.WriteLine(sayilar[i]);
+
+            //}
+            Console.Write("Dizi Oluşturuldu.\nAramak İstediğiniz Değer: ");
+            int aranacakSayi = int.Parse(Console.ReadLine());
+
+            bool varMi = false;
+
+            for (int i = 0; i < sayilar.Length; i++)
+            {
+                if (sayilar[i] == aranacakSayi)
+                    varMi = true;
+            }
+
+            Console.WriteLine("Aranılan Değer Dizi İçerisinde Varmı?: " + (varMi ? "Var" : "Yok"));
+        }
+
+        //public static void DiziEnBK()
+        //{
+        //    int[] dizi = new int[5];
+        //    Console.WriteLine("Dizinin elemanlarını sırayla giriniz.");
+        //    for (int i = 0; i < dizi.Length; i++)
+        //    {
+        //        Console.ReadLine(dizi[i]);
+        //    }
+        //}
     }
 }
